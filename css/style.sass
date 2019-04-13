@@ -1,0 +1,299 @@
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+// mixin
+
+@mixin media-min($_min-width)
+    @media screen and (min-width: $_min-width)
+        @content
+
+// variables
+
+$header-bg: #69F0AE
+$header-ht: 80px
+
+
+html body
+    width: 100%
+    height: 100vh
+    background-color: black
+    font-family: 'Roboto', sans-serif
+
+h1
+    font-size: 1.5em 
+    text-transform: uppercase    
+
+h2
+    font-size: 1.2em 
+    text-transform: uppercase
+    margin: 20px 0
+
+a
+    text-decoration: none
+    color: black
+    cursor: pointer
+    &:visited
+        color: black
+//////////////////////////////////////////
+// Gestion du header de toutes les pages//
+//////////////////////////////////////////
+
+main
+    padding-top: 100px
+
+.header
+    z-index: 3
+    width: 100%
+    height: $header-ht
+    background-color: $header-bg
+    border-bottom-left-radius: 5px
+    border-bottom-right-radius: 5px
+    color: black
+    position: fixed
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    .header-logo
+        width: 80%
+        height: $header-ht
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        justify-content: center
+        @include media-min (800px)
+            width: 40%
+        .testlogo
+            background-color: blue
+            width: 100%
+            margin: 10px
+            height: $header-ht
+            border-radius: 15px
+            text-align: center
+            vertical-align: middle
+    // menu burger
+
+    .header__icon
+        position: relative
+        display: block
+        width: 50px
+        height: $header-ht
+        cursor: pointer
+        @include media-min (800px)
+            display: none
+        &::after
+            content: ""
+            position: absolute
+            width: 1.5em
+            height: 0px
+            top: 25px
+            right: 16px
+            box-shadow: 0 8px 0 1px white, 0 16px 0 1px white, 0 24px 0 1px white
+
+// gestion menu nav
+
+.menu
+    z-index: 1
+    float: right
+    width: 100%
+    height: 249px
+    position: absolute
+    top: $header-ht
+    background-color: darken($header-bg, 10)
+    opacity: .95
+    transform: translateY(-400px)
+    transition: translateY 0.2s
+    @include media-min (800px)
+        position: relative
+        transform: translateY(0px)
+        background-color: rgba(0,0,0,0)
+        top: 0
+        height: $header-ht
+        line-height: $header-ht
+        width: 40%
+        display: flex
+        justify-content: flex-end
+        padding-right: 20px
+    @include media-min (960px)
+        width: 40%
+    a
+        font-size: 1.5em
+        height: auto
+        display: block
+        text-align: center
+        border-bottom: 1px solid $header-bg
+        padding: 16px 0
+        @include media-min (800px)
+            font-size: 1.3em
+            display: inline
+            padding : 0px 2px
+        @include media-min (960px)
+            font-size: 1.5em
+        @include media-min (1200px)
+            font-size: 1.5em
+        &:hover
+            color: white
+
+// gestion animation ouverture menu burger
+
+.with__sidebar
+    .header
+        border-bottom-left-radius: 0px
+    border-bottom-right-radius: 0px
+    .pusher
+        transform: translateY(+380px)
+    .menu
+        transform: translateY(0px)
+    #cache
+        position: absolute
+        height: 100%
+        top: 0
+        bottom: 0
+        right: 0
+        left: 0
+        background-color: rgba(0,0,0,0.5)
+
+.pusher
+    height: 100%
+    transition: translateY 0.2s
+    transform: translateY(0px)
+
+//////////////////////////////////////////
+// Gestion du footer de toutes les pages//
+//////////////////////////////////////////
+
+footer
+    background-color: lighten($header-bg, 10)
+    width: 100%
+    height: 50px
+    border-top-left-radius: 5px
+    border-top-left-radius: 5px
+    display: flex
+    justify-content: space-around
+    align-items: center
+    position: fixed
+    bottom: 0
+    .mention
+        font-size : 1em
+    .logo
+        width: 25px
+        height: 25px
+    img
+        width: 100%
+
+
+//////////////////////////////////////////////////////
+// Gestion du bouton retour haut de toutes les pages//
+//////////////////////////////////////////////////////
+
+#retourhaut
+    width: 25px
+    height: 25px
+    z-index: 4
+    position: fixed
+    bottom : 60px
+    right: -100px
+    opacity: 0.7
+    cursor: pointer
+    img
+        width: 100%
+
+////////////////////////////////
+// Gestion de la page Gallerie//
+////////////////////////////////
+
+.contenair_gallerie
+    width: 100%
+    padding: 0 50px 50px
+    text-align: center
+    a
+        color: white
+    .cadre_categ
+        width: 100%
+        img
+            width: 100%
+
+//////////////////////////////////////////
+// Gestion de la page affichage_tableaux//
+//////////////////////////////////////////
+
+.affichage_tableaux
+    width: 100%
+    padding: 100px 50px
+    text-align: center
+    .cadre_tableau
+        width: 100%
+        color: white
+        margin-bottom: 30px
+        display: flex
+        flex-direction: column
+        align-items: center
+        img
+            width: 100%
+            padding-bottom: 5px
+        .bouton
+            width: 40%
+            background-color: darken($header-bg, 30)
+            border-radius: 25px
+        p
+            padding-bottom: 5px
+///////////////////////////////
+// Gestion de la page Contact//
+///////////////////////////////
+.contenair
+    width: 100%
+    height: 100vh
+    padding: 0 50px
+    text-align: center
+.form_contact
+    width: 100%
+    height: 100%
+    color: white
+    .reference
+        margin-bottom: 10px
+    input
+        width: 100%
+        height: 30px
+        background-color: white
+        border-radius: 10px
+        margin-top: 5px
+        margin-bottom: 10px
+        background-color: lighten($header-bg, 20)
+        border: 2px solid $header-bg
+        text-align: center
+    label
+        margin-left: 10px
+    textarea
+        width: 100%
+        background-color: white
+        border-radius: 10px
+        background-color: lighten($header-bg, 20)
+        border: 2px solid $header-bg
+        text-align: left
+    .centrage
+        text-align: center
+        .bouton
+            width: 30%
+            height: 30px
+            border-radius: 25px
+            margin-top: 30px
+            background-color: $header-bg
+            border: 2px solid blue
+
+//////////////////////////
+// Gestion du carroussel//
+//////////////////////////
+.contenair_carroussel
+    padding: 0 20px
+    display: flex
+    justify-content: center
+
+.carousel
+    display: flex
+    width: 100%
+    overflow: hidden
+    height: 200px
+    img
+        width: 100%
