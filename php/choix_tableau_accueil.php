@@ -24,5 +24,3 @@ $req -> execute(array(
 $img3 = $row['lien_image'];
 $req -> closeCursor();
 
-
-

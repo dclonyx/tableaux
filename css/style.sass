@@ -42,7 +42,10 @@ a
 
 main
     padding-top: 100px
-
+    color: white
+    text-align: center
+    h1
+        padding-bottom: 20px
 .header
     z-index: 3
     width: 100%
@@ -128,11 +131,10 @@ main
         @include media-min (800px)
             font-size: 1.3em
             display: inline
-            padding : 0px 2px
+            padding : 0px 5px
         @include media-min (960px)
             font-size: 1.5em
-        @include media-min (1200px)
-            font-size: 1.5em
+            padding : 0px 8px
         &:hover
             color: white
 
@@ -208,10 +210,17 @@ footer
     width: 100%
     padding: 0 50px 50px
     text-align: center
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
     a
         color: white
     .cadre_categ
         width: 100%
+        @include media-min(800px)
+            width: 45%
+        @include media-min(1100px)
+            width: 30%
         img
             width: 100%
 
@@ -221,8 +230,12 @@ footer
 
 .affichage_tableaux
     width: 100%
-    padding: 100px 50px
+    padding: 0 50px 50px
     text-align: center
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-items: center
     .cadre_tableau
         width: 100%
         color: white
@@ -230,11 +243,15 @@ footer
         display: flex
         flex-direction: column
         align-items: center
+        @include media-min(800px)
+            width: 45%
+        @include media-min(1100px)
+            width: 30%
         img
             width: 100%
             padding-bottom: 5px
         .bouton
-            width: 40%
+            width: 60%
             background-color: darken($header-bg, 30)
             border-radius: 25px
         p
@@ -244,15 +261,28 @@ footer
 ///////////////////////////////
 .contenair
     width: 100%
-    height: 100vh
+    height: 100%
     padding: 0 50px
     text-align: center
 .form_contact
     width: 100%
     height: 100%
     color: white
+    margin: auto
+    @include media-min(800px)
+        width: 60%
+    @include media-min(1100px)
+        width: 40%
     .reference
         margin-bottom: 10px
+        display: flex
+        justify-content: space-around
+        .miniature
+            width: 100px
+            height: 80px
+            img
+                max-height: 100%  
+                max-width: 100%          
     input
         width: 100%
         height: 30px
@@ -263,8 +293,6 @@ footer
         background-color: lighten($header-bg, 20)
         border: 2px solid $header-bg
         text-align: center
-    label
-        margin-left: 10px
     textarea
         width: 100%
         background-color: white
@@ -285,15 +313,4 @@ footer
 //////////////////////////
 // Gestion du carroussel//
 //////////////////////////
-.contenair_carroussel
-    padding: 0 20px
-    display: flex
-    justify-content: center
 
-.carousel
-    display: flex
-    width: 100%
-    overflow: hidden
-    height: 200px
-    img
-        width: 100%
