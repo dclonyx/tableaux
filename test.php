@@ -1,7 +1,4 @@
 <?php
-
-require 'php/choix_tableau_accueil.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -15,13 +12,28 @@ require 'php/choix_tableau_accueil.php';
     <title>Document</title>
 </head>
 <body>
-    <div class="contenair_carroussel">
-        <div class="carousel">
-            <a class="carousel-item" href="#one!"><img src="<?php echo $img1 ;?>"></a>
-            <a class="carousel-item" href="#two!"><img src="<?php echo $img2 ;?>"></a>
-            <a class="carousel-item" href="#three!"><img src="<?php echo $img3 ;?>"></a>
-        </div>
+    <div id="caroussel">
+        <img class="mySlides" src="./img/categ1/tab-1.jpg" alt="eyes" >
+        <img class="mySlides" src="./img/categ2/tab-2.jpg" alt="lou" >
+        <img class="mySlides" src="./img/categ3/tab-3.jpg" alt="lucie-2" >
+        <img class="mySlides" src="./img/categ4/tab-4.jpg" alt="lucie" >
+        <img class="mySlides" src="./img/categ5/tab-5.jpg" alt="lucie" >
     </div>
-    <script src="./js/script.js"></script>
+<script src="./js/script.js">
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000);
+}
+</script>
 </body>
 </html>

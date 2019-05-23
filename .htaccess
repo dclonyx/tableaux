@@ -1,0 +1,6 @@
+# Redirection vers HTTPS 
+RewriteCond     %{SERVER_PORT} ^80$
+RewriteRule     ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
+
+# Désactiver l'affichage du contenu des répertoires
+Options All -Indexes

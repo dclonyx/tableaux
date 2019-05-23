@@ -1,7 +1,6 @@
 //  empecher l'ecriture de caracteres speciaux dans les champs nom et prenom
 
 function verifierCaracteres(event) {
-	 		
 	var keyCode = event.which ? event.which : event.keyCode;
 	var touche = String.fromCharCode(keyCode);
 			
@@ -15,8 +14,7 @@ function verifierCaracteres(event) {
 			
 }
 
-function verifierCaracteres2(event) {
-	 		
+function verifierCaracteres2(event) {		
 	var keyCode = event.which ? event.which : event.keyCode;
 	var touche = String.fromCharCode(keyCode);
 			
@@ -30,8 +28,7 @@ function verifierCaracteres2(event) {
 }
 
 // surligner en rouge
-function surligne(champ, erreur)
-{
+function surligne(champ, erreur) {
    if(erreur)
       champ.style.backgroundColor = "#fba";
    else
@@ -39,8 +36,7 @@ function surligne(champ, erreur)
 }
 
 // verification de la longueure
-function veriflongueur(champ)
-{
+function veriflongueur(champ) {
    if(champ.value.length < 2 || champ.value.length > 25)
    {
       surligne(champ, true);
@@ -55,10 +51,9 @@ function veriflongueur(champ)
 
 // envoi si tous les champs remplis
 
-function verifForm(f)
-{
-	 var longueurOk = veriflongueur(champ)(f.nom);
-	 var longueur2Ok = veriflongueur(champ)(f.prenom);
+function verifForm(f) {
+	var longueurOk = veriflongueur(champ)(f.nom);
+	var longueur2Ok = veriflongueur(champ)(f.prenom);
    
    if(longueurOk && longueur2Ok)
       return true;
@@ -71,7 +66,7 @@ function verifForm(f)
 
 // gestion retour haut de page
 
-jQuery(function(){
+jQuery(function() {
 	$(function () {
 	$(window).scroll(function () { //Fonction appelée quand on descend la page
 	if ($(this).scrollTop() > 200 ) {  // Quand on est à 200pixels du haut de page,
@@ -86,20 +81,19 @@ jQuery(function(){
 // gestion menu burger
 
 (function($){
-
     /* Quand je clique sur l'icône hamburger je rajoute une classe au body */
-    $('#header__icon').click(function(e){
-        e.preventDefault();
-        $('body').toggleClass('with__sidebar');
-    });
+   $('#header__icon').click(function(e){
+		e.preventDefault();
+		$('body').toggleClass('with__sidebar');
+   });
 
     /* Je veux pouvoir masquer le menu si on clique sur le cache */
-    $('#cache').click(function(e){
+   $('#cache').click(function(e){
 		$('body').removeClass('with__sidebar');
 	});
 		
 	$('#menu').click(function(e){
 		$('body').removeClass('with__sidebar');
-    });
+   });
 
 })(jQuery);
