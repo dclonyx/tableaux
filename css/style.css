@@ -600,4 +600,24 @@ footer img {
     max-height: 400px;
   }
 }
+
+.contenair_ajout {
+  margin: auto;
+  padding: 5px;
+  text-align: center;
+  color: white;
+}
+
+.contenair_ajout .ajout {
+  margin: auto;
+  width: 400px;
+}
+
+.contenair_ajout .categorie, .contenair_ajout .taille, .contenair_ajout .prix, .contenair_ajout .fichier {
+  margin-bottom: 20px;
+}
+
+.contenair_ajout p {
+  margin-bottom: 5px;
+}
 /*# sourceMappingURL=style.css.map */

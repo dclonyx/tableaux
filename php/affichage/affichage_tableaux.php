@@ -1,6 +1,6 @@
 <?php
 ob_start();
-require 'connectionbdd.php';
+require '../traitement/connectionbdd.php';
 $title = 'Tableaux';
 $encours = 1 ;
 $categorie = htmlspecialchars($_GET['id']);
@@ -23,7 +23,7 @@ WHERE reference=:reference");
     <div class="affichage_tableaux">
         <?php
         $nb_fichier=0;
-        if($dossier = opendir('../img/'.$categorie)) {
+        if($dossier = opendir('../../img/'.$categorie)) {
             while(false !== ($fichier = readdir($dossier))) {
                 if($fichier != '.' && $fichier != '..' && $fichier != 'index.php') {
                     $reference = basename($fichier, '.jpg');
@@ -36,14 +36,14 @@ WHERE reference=:reference");
                     $nb_fichier++; ?>
                     <div class="cadre_tableau">
                         <form action="contact.php" method="post">
-                            <img src="../img/<?=$categorie.'/'.$fichier;?>" alt="tableau" >
+                            <img src="../../img/<?=$categorie.'/'.$fichier;?>" alt="tableau" >
                             <p>Référence : <?php echo $reference;?></p>
                             <p>Dimension : <?php echo $taille;?> mètre(s)</p>
                             <p>Prix : <?php echo $prix;?> euros</p>
                             <input type="hidden" name="ref" value="<?php echo $reference;?>">
                             <input type="hidden" name="taille" value="<?php echo $taille;?>">
                             <input type="hidden" name="prix" value="<?php echo $prix;?>">
-                            <input type="hidden" name="img" value="../img/<?=$categorie.'/'.$fichier;?>">
+                            <input type="hidden" name="img" value="../../img/<?=$categorie.'/'.$fichier;?>">
                             <button class="bouton" type="submit">Commander</button>
                         </form>
                     </div>
