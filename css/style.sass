@@ -255,13 +255,13 @@ footer
         @include media-min(800px)
             width: 45%
         @include media-min(1100px)
-            width: 30%
+            max-width: 30%
         img
             max-width: 100%
-            max-height: 400px
+            max-height: 350px
             padding-bottom: 5px
         .bouton
-            width: 30%
+            width: 50%
             background-color: darken($header-bg, 30)
             border-radius: 25px
             height: 25px
@@ -343,7 +343,7 @@ footer
         border-radius: 10px
         margin-top: 5px
         margin-bottom: 10px
-        background-color: lighten($header-bg, 20)
+        background-color: lighten($header-bg, 45)
         border: 2px solid $header-bg
         text-align: center  
     label
@@ -353,7 +353,7 @@ footer
         width: 100%
         background-color: white
         border-radius: 10px
-        background-color: lighten($header-bg, 20)
+        background-color: lighten($header-bg, 45)
         border: 2px solid $header-bg
         text-align: left
         margin-top: 3px
@@ -410,7 +410,7 @@ footer
     .ajout
         margin: auto
         width: 400px
-    .categorie, .taille, .prix, .fichier
+    .categorie, .dimension, .prix, .fichier
         margin-bottom: 20px
     p
         margin-bottom: 5px

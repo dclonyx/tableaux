@@ -369,18 +369,18 @@ footer img {
 
 @media screen and (min-width: 1100px) {
   .affichage_tableaux .cadre_tableau {
-    width: 30%;
+    max-width: 30%;
   }
 }
 
 .affichage_tableaux .cadre_tableau img {
   max-width: 100%;
-  max-height: 400px;
+  max-height: 350px;
   padding-bottom: 5px;
 }
 
 .affichage_tableaux .cadre_tableau .bouton {
-  width: 30%;
+  width: 50%;
   background-color: #3c0000;
   border-radius: 25px;
   height: 25px;
@@ -507,7 +507,7 @@ footer img {
   border-radius: 10px;
   margin-top: 5px;
   margin-bottom: 10px;
-  background-color: #ff3c3c;
+  background-color: #ffbcbc;
   border: 2px solid #D50000;
   text-align: center;
 }
@@ -521,7 +521,7 @@ footer img {
   width: 100%;
   background-color: white;
   border-radius: 10px;
-  background-color: #ff3c3c;
+  background-color: #ffbcbc;
   border: 2px solid #D50000;
   text-align: left;
   margin-top: 3px;
@@ -613,7 +613,7 @@ footer img {
   width: 400px;
 }
 
-.contenair_ajout .categorie, .contenair_ajout .taille, .contenair_ajout .prix, .contenair_ajout .fichier {
+.contenair_ajout .categorie, .contenair_ajout .dimension, .contenair_ajout .prix, .contenair_ajout .fichier {
   margin-bottom: 20px;
 }
 

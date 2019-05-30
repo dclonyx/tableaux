@@ -6,12 +6,11 @@ $title = 'Contact';
 $commander = false;
 $encours = 3;
 
-// var_dump($_POST['validation']);
 if (!isset($_POST['validation'])) {
     if (!empty($_POST['ref'])){
         $prix=$_POST['prix'];
         $ref=$_POST['ref'];
-        $taille=$_POST['taille'];
+        $dimension=$_POST['dimension'];
         $img=$_POST['img'];
         $commander = true;
     }
@@ -41,8 +40,8 @@ if (!isset($_POST['validation'])) {
                                 if (!empty($ref)){
                                     echo '<p>Référence : '.$ref.'</p>';
                                 }
-                                if (!empty($taille)){
-                                    echo '<p>Dimension : '.$taille.' mètre(s)</p>';
+                                if (!empty($dimension)){
+                                    echo '<p>Dimension : '.$dimension.' cm</p>';
                                 }
                                 if (!empty($prix)){
                                     echo '<p>Prix : '.$prix.' euros</p>';

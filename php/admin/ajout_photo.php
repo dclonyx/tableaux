@@ -5,10 +5,6 @@ $reqcateg= $bdd->prepare("SELECT * FROM categorie
 ORDER by id_categorie");
 $reqcateg->execute();
 
-$reqtaille= $bdd->prepare("SELECT * FROM taille
-ORDER by dimension");
-$reqtaille->execute();
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -34,16 +30,9 @@ $reqtaille->execute();
                     ?>
                 </select>
             </div>
-            <div class="taille">
-            <p>Sélectionne la taille</p>
-                <select name="taille">
-                    <?php
-                    while ($rowtaille = $reqtaille ->fetch()) {
-                        echo "<option value='".$rowtaille['dimension']."'>".$rowtaille['dimension']."</option>";
-                    }
-                    $reqtaille->closeCursor();
-                    ?>
-                </select>
+            <div class="dimension">
+                <p>Rentre les dimensions en cm (ex:50x50)</p>
+                <input type="text" name="dimension">
             </div>
             <div class="prix">
                 <p>Choisi le prix</p>

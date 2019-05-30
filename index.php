@@ -17,7 +17,7 @@
             <div class="testlogo"><span>Les Tableaux d'Elodie</span></div>
         </div>
         <a href="#" class="header__icon" id="header__icon"></a>
-        <nav class="menu" id="menu">
+            <nav class="menu" id="menu">
             <a href="#" class="active">Accueil</a>
             <a href="./php/affichage/Gallerie.php">Gallerie</a>
             <a href="./php/affichage/Presentation.php">Présentation</a>
@@ -27,17 +27,17 @@
     <div class="pusher">   
         <main>
             <div id="carroussel">
-                <img class="mySlides" src="./img/categ1/tab-1.jpg" alt="eyes" >
-                <img class="mySlides" src="./img/categ2/tab-2.jpg" alt="lou" >
-                <img class="mySlides" src="./img/categ3/tab-3.jpg" alt="lucie-2" >
-                <img class="mySlides" src="./img/categ4/tab-4.jpg" alt="lucie" >
-                <img class="mySlides" src="./img/categ5/tab-5.jpg" alt="lucie" >
+                <img class="mySlides" src="./img/Tableaux Simples/tab-1.jpg" alt="Tableau" >
+                <img class="mySlides" src="./img/Tableaux Doubles/tab-2.jpg" alt="Tableau" >
+                <img class="mySlides" src="./img/Tableaux Triples/tab-3.jpg" alt="Tableau" >
+                <img class="mySlides" src="./img/Tableaux Quadruples/tab-4.jpg" alt="Tableau" >
+                <img class="mySlides" src="./img/Tableaux Quintuples/tab-5.jpg" alt="Tableau" >
             </div>
         </main>
         <!-- cache le site a l ouverture du menu burger -->
         <div id="cache"></div>
         <footer>
-            <a class="mention" href="./php/mentions_legales.php">Mentions Légales</a>
+            <a class="mention" href="./php/affichage/mentions_legales.php">Mentions Légales</a>
             <a class="logo" target="_blank" href="https://www.facebook.com/Les-tableaux-dElodie-720131621368673/">
                 <img src="./img/fb.png" alt="facebook">
             </a>
@@ -58,9 +58,11 @@
             x[i].style.display = "none";  
         }
         myIndex++;
-        if (myIndex > x.length) {myIndex = 1}    
+        if (myIndex > x.length) {
+            myIndex = 1;
+        }    
         x[myIndex-1].style.display = "block";  
-        setTimeout(carousel, 2000);
+        setTimeout(carousel, 3000);
     }
 </script>
 <script src="./js/script.js"></script>
