@@ -10,7 +10,17 @@ $exist->execute(array(
     'reference' => $fichier
 ));
 if ($row=$exist->fetch()) {
-    echo 'Un tableau porte déja ce nom';
+    ob_start();
+    $title = 'Ajout non effectué';
+    ?>
+    <div class="retour_accueil">
+        <h1>Ce nom de tableau existe déja</h1>
+        <a href="./ajouter.php">Ajouter une nouvelle photo</a>
+        <a href="./index.php">Retour a l'administration</a>
+    </div>
+    <?php
+    $content = ob_get_clean();
+    require './template_admin.php';
 } else {
     // Insertion dans la table prix après vérification existant
     $prix = $_POST['prix'];
@@ -62,29 +72,50 @@ if ($row=$exist->fetch()) {
     $id_categorie = $row['id_categorie'];
     $req->closeCursor();
 
+    // Upload de la photo
+    $categ = $_POST['categ'];
+    $fichierinsert = $_FILES['fichier']['name'];
+    $dossier = '../../img/'.$categ.'/';
+    if(isset($_FILES['fichier'])) { 
+        if(move_uploaded_file($_FILES['fichier']['tmp_name'], $dossier . $fichierinsert)) {
+            ob_start();
+            $title = 'Ajout effectué';            
+            ?>
+            <div class="retour_accueil">
+                <h1>Tableau ajouté</h1>
+                <a href="./ajouter.php">Ajouter une nouvelle photo</a>
+                <a href="./index.php">Retour a l'administration</a>
+            </div>
+            <?php
+            $content = ob_get_clean();
+            require './template_admin.php';
+        }
+        else {
+            ob_start();
+            $title = 'Ajout non effectué';
+            ?>
+            <div class="retour_accueil">
+                <h1>Echec de l'upload</h1>
+                <a href="./ajouter.php">Ajouter une nouvelle photo</a>
+                <a href="./index.php">Retour a l'administration</a>
+            </div>
+            <?php
+            $content = ob_get_clean();
+            require './template_admin.php';
+        }
+    }
+
     // Insertion dans la table tableau
-    $insert=$bdd->prepare("INSERT INTO tableau (reference, id_dimension, id_categorie, id_prix) VALUE (:reference, :id_dimension, :id_categorie, :id_prix)");
+    $lien_image = $dossier.$fichierinsert;
+    $insert=$bdd->prepare("INSERT INTO tableau (reference, lien_image, id_dimension, id_categorie, id_prix) VALUE (:reference, :lien_image, :id_dimension, :id_categorie, :id_prix)");
     $insert->execute(array(
         'reference' => $fichier,
+        'lien_image' => $lien_image,
         'id_dimension' => $id_dimension,
         'id_categorie' => $id_categorie,
         'id_prix' => $id_prix
     ));
     $insert->closeCursor();
-
-
-    // Upload de la photo
-    $categ = $_POST['categ'];
-    $fichierinsert = basename($_FILES['fichier']['name']);
-    if(isset($_FILES['fichier'])) { 
-        $dossier = '../../img/'.$categ.'/';
-        if(move_uploaded_file($_FILES['fichier']['tmp_name'], $dossier . $fichierinsert)) {
-            echo 'Tableau uploader !';
-        }
-        else {
-            echo 'Echec de l\'upload !';
-        }
-    }
 }
 
 
