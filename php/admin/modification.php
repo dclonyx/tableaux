@@ -1,15 +1,16 @@
 <?php
-require ('../traitement/connectionbdd.php');
+require ('../traitement/connexionbdd.php');
+
+ob_start();
+$title='Suppression';
 
 $req=$bdd->prepare("SELECT * FROM tableau
 ORDER BY reference");
 $req->execute();
-ob_start();
-$title='Suppression';
 ?>
-<div class="contenair_suppression">
-    <form action="./traitement_modif.php" method="POST" class="form_sup">
-        <select name="sup">
+<div class="contenair_modification">
+    <form action="./traitement_modif.php" method="POST" class="form_modif">
+        <select name="modif">
         <?php
         while ($row=$req->fetch()) {
             echo "<option value='".$row['reference']."'>".$row['reference']."</option>";

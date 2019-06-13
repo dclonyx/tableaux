@@ -1,5 +1,3 @@
-<?php
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -27,11 +25,11 @@
     <div class="pusher">   
         <main>
             <div id="carroussel">
-                <img class="mySlides" src="./img/Tableaux Simples/tab-1.jpg" alt="Tableau" >
-                <img class="mySlides" src="./img/Tableaux Doubles/tab-2.jpg" alt="Tableau" >
-                <img class="mySlides" src="./img/Tableaux Triples/tab-3.jpg" alt="Tableau" >
-                <img class="mySlides" src="./img/Tableaux Quadruples/tab-4.jpg" alt="Tableau" >
-                <img class="mySlides" src="./img/Tableaux Quintuples/tab-5.jpg" alt="Tableau" >
+                <img class="mySlides" src="./img/Les Solos/tab-1.jpg" alt="Tableau" >
+                <img class="mySlides" src="./img/Les Diptyques/tab-2.jpg" alt="Tableau" >
+                <img class="mySlides" src="./img/Les Triptyques/tab-3.jpg" alt="Tableau" >
+                <img class="mySlides" src="./img/Les Quadriptyques/tab-4.jpg" alt="Tableau" >
+                <img class="mySlides" src="./img/Les Quintiptyques/tab-5.jpg" alt="Tableau" >
             </div>
         </main>
         <!-- cache le site a l ouverture du menu burger -->

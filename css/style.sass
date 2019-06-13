@@ -98,7 +98,7 @@ main
             height: 0px
             top: 25px
             right: 16px
-            box-shadow: 0 8px 0 1px white, 0 16px 0 1px white, 0 24px 0 1px white
+            box-shadow: 0 8px 0 1px black, 0 16px 0 1px black, 0 24px 0 1px black
 
 // gestion menu nav
 
@@ -224,14 +224,17 @@ footer
         color: white
     .cadre_categ
         padding: 10px
+        margin: auto
         width: 100%
         @include media-min(800px)
             width: 45%
+            max-height: 400px
         @include media-min(1100px)
             width: 30%
     .photos
         img
-            width: 100%
+            max-width: 100%
+            max-height: 250px
 
 //////////////////////////////////////////
 // Gestion de la page affichage_tableaux//
@@ -254,11 +257,12 @@ footer
         align-items: center
         @include media-min(800px)
             width: 45%
+            max-height: 400px
         @include media-min(1100px)
             max-width: 30%
         img
             max-width: 100%
-            max-height: 350px
+            max-height: 250px
             padding-bottom: 5px
         .bouton
             width: 50%
@@ -441,15 +445,10 @@ footer
     flex-direction: column
     align-items: center
     .form_sup
-        width: 30%
-        padding: 20px
         margin: auto
-        display: flex
-        flex-direction: column
-        align-items: center
+        margin: 10px 0
         .bouton
-            padding: 5px
-            margin-top: 20px
+            padding: 3px
     a
         color: white
 
@@ -459,6 +458,60 @@ footer
     flex-direction: column
     align-items: center
     color: white
+    margin-top: 10px
     a
         color: white
         margin-top: 10px
+
+// Page modification
+.contenair_modification
+    display: flex
+    flex-direction: column
+    align-items: center
+    color: white
+    .form_modif
+        margin: 10px 0
+    a
+        color: white
+
+// Page traitement modification
+.modification
+    display: flex
+    flex-direction: column
+    align-items: center
+    color: white
+    margin-top: 10px
+    .traitement_modif
+        display: flex
+        flex-direction: column
+        align-items: center
+    button
+        margin-top: 10px
+        margin-bottom: 10px
+        padding: 3px
+    input
+        margin: 3px 0 10px
+    a
+        color: white
+
+.popup
+    display: none
+    position: fixed
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background-color: black
+    opacity: 0.5
+    z-index: 1000
+// #popup
+//     &:target
+//         display: block
+.popup
+    a
+        font-weight: bold
+        padding: 10px 25px
+        background-color: white
+        position: absolute
+        top: 50%
+        left: 50px

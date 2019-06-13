@@ -1,7 +1,10 @@
 <?php
-require '../traitement/connectionbdd.php';
+require '../traitement/connexionbdd.php';
 
-$reference = $_POST['sup'];
+ob_start();
+$title = 'Modification';
+
+$reference = $_POST['modif'];
 
 $req=$bdd->prepare("SELECT * FROM tableau
 NATURAL JOIN categorie
@@ -12,33 +15,22 @@ $req->execute(array(
     'reference' => $reference
 ));
 $row=$req->fetch();
-$categ=$row['nom_categorie'];
 $prix=$row['prix'];
 $dimension=$row['dimension'];
 $req->closeCursor();
-
-$key=$bdd->query("set FOREIGN_KEY_CHECKS=0");
-
-$sup=$bdd->prepare("DELETE FROM tableau
-WHERE reference =:reference");
-$sup->execute(array(
-    'reference' => $reference
-));
-$sup->closeCursor();
-
-$key=$bdd->query("set FOREIGN_KEY_CHECKS=1");
-$key->closeCursor();
-
-unlink ("../../img/".$categ."/".$reference.".jpg");
-
-ob_start();
-$title = 'Suppression effectuée';
 ?>
-<div class="retour_accueil">
-    <h1>Tableau supprimé</h1>
-    <a href="./suppression.php">Supprimer un tableau</a>
+<div class="modification">
+    <form action="traitement_modif2.php" method="post" class="traitement_modif">
+        <label for="prix">Prix :</label>
+        <input type="text" name="prix" value="<?php echo $prix; ?>">
+        <label for="Dimension">Dimension :</label>
+        <input type="text" name="dimension" value="<?php echo $dimension; ?>">
+        <input type="hidden" name="reference" value="<?php echo $reference; ?>">
+        <button type="submit">Valider les modifications</button>
+    </form>
     <a href="./index.php">Retour a l'administration</a>
 </div>
 <?php
 $content = ob_get_clean();
 require './template_admin.php';
+

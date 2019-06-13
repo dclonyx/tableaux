@@ -1,5 +1,5 @@
 <?php
-require ('../traitement/connectionbdd.php');
+require ('../traitement/connexionbdd.php');
 
 $req=$bdd->prepare("SELECT * FROM tableau
 ORDER BY reference");

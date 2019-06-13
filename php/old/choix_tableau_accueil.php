@@ -8,7 +8,7 @@ $row = $req->fetch();
 $img1 = $row['lien_image'];
 $req -> closeCursor();
 
-$req = $bdd -> prepare("SELECT * FROM tableau WHERE lien_image != :img1 ORDER BY RAND() LIMIT 1 ");
+$req = $bdd -> prepare("SELECT * FROM tableau WHERE lien_image <> :img1 ORDER BY RAND() LIMIT 1 ");
 $req -> execute(array(
     'img1' => $img1
 ));

@@ -1,5 +1,5 @@
 <?php
-require '../traitement/connectionbdd.php';
+require '../traitement/connexionbdd.php';
 
 // Vérification si nom du tableau déja existant en bdd
 $fichier = basename($_FILES['fichier']['name'], '.jpg');

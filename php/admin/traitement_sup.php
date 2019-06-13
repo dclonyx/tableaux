@@ -1,5 +1,5 @@
 <?php
-require '../traitement/connectionbdd.php';
+require '../traitement/connexionbdd.php';
 
 $reference = $_POST['sup'];
 

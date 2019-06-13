@@ -5,7 +5,7 @@ require ('../traitement/cle.php');
 $title = 'Contact';
 $commander = false;
 $encours = 3;
-
+$justify = 'justify-content:space-between';
 if (!isset($_POST['validation'])) {
     if (!empty($_POST['ref'])){
         $prix=$_POST['prix'];
@@ -28,38 +28,37 @@ if (!isset($_POST['validation'])) {
                         <input type="email" placeholder="Email" required>
                     </div>
                     <?php
-                    if ($commander){
-                        $style = 'display: flex'; ?>
-                        <div class="block_droite" style="<?php echo $style; ?>;">
-                        <div class="texte">
-                            <div class="titre">
-                                <h4>Votre choix :</h4>
+                    if ($commander){ ?>
+                        <div class="block_droite" style="display:flex">
+                            <div class="texte">
+                                <div class="titre">
+                                    <h4>Votre choix :</h4>
+                                </div>
+                                <div class="informations">
+                                    <?php
+                                    if (!empty($ref)){
+                                        echo '<p>Référence : '.$ref.'</p>';
+                                    }
+                                    if (!empty($dimension)){
+                                        echo '<p>Dimension : '.$dimension.' cm</p>';
+                                    }
+                                    if (!empty($prix)){
+                                        echo '<p>Prix : '.$prix.' euros</p>';
+                                    }
+                                    ?>
+                                </div>
                             </div>
-                            <div class="informations">
-                                <?php
-                                if (!empty($ref)){
-                                    echo '<p>Référence : '.$ref.'</p>';
-                                }
-                                if (!empty($dimension)){
-                                    echo '<p>Dimension : '.$dimension.' cm</p>';
-                                }
-                                if (!empty($prix)){
-                                    echo '<p>Prix : '.$prix.' euros</p>';
-                                }
-                                ?>
+                            <div class="miniature">
+                                <img src="<?php echo $img;?>" alt="miniature">
                             </div>
                         </div>
-                        <div class="miniature">
-                            <img src="<?php echo $img;?>" alt="miniature">
-                        </div>
-                        </div>
+                        <input name="ref" type="hidden" value="<?php echo $ref;?>">
+                        <input name="taille" type="hidden" value="<?php echo $taille;?>">
+                        <input name="prix" type="hidden" value="<?php echo $prix;?>">
                     <?php
                     }
                     ?>
                 </div>
-                <input name="ref" type="hidden" value="<?php echo $ref;?>">
-                <input name="taille" type="hidden" value="<?php echo $taille;?>">
-                <input name="prix" type="hidden" value="<?php echo $prix;?>">
                 <label for="message">Message:</label>
                 <textarea name="message" id="message" cols="30" rows="6">
                 </textarea>

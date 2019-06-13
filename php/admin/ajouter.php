@@ -1,5 +1,5 @@
 <?php
-require ('../traitement/connectionbdd.php');
+require ('../traitement/connexionbdd.php');
 ob_start();
 $title= 'ajouter';
 $reqcateg= $bdd->prepare("SELECT * FROM categorie
