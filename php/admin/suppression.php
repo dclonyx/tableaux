@@ -8,6 +8,7 @@ ob_start();
 $title='Suppression';
 ?>
 <div class="contenair_suppression">
+    <h2>Supprimer un tableau</h2>
     <form action="./traitement_sup.php" method="POST" class="form_sup">
         <select name="sup">
         <?php

@@ -72,12 +72,28 @@ if ($row=$exist->fetch()) {
     $id_categorie = $row['id_categorie'];
     $req->closeCursor();
 
+    //  Récupération du numéro du dernier tablaux
+    $reqnum= $bdd->prepare("SELECT * FROM tableau
+    NATURAL JOIN categorie
+    WHERE id_categorie = :id_categorie
+    ORDER BY numero DESC
+    LIMIT 1");
+    $reqnum->execute(array(
+        'id_categorie' => $id_categorie
+    ));
+    $rownum = $reqnum->fetch();
+    $numerotableau = $rownum['numero'];
+    $numerotableau ++;
+    $nomtableau = $rownum['nom_tableau'];
+    $reference = $nomtableau."-".$numerotableau;
+    $reqnum->closeCursor();
+
     // Upload de la photo
     $categ = $_POST['categ'];
     $fichierinsert = $_FILES['fichier']['name'];
     $dossier = '../../img/'.$categ.'/';
     if(isset($_FILES['fichier'])) { 
-        if(move_uploaded_file($_FILES['fichier']['tmp_name'], $dossier . $fichierinsert)) {
+        if(move_uploaded_file($_FILES['fichier']['tmp_name'], $dossier . $reference)) {
             ob_start();
             $title = 'Ajout effectué';            
             ?>
@@ -107,9 +123,10 @@ if ($row=$exist->fetch()) {
 
     // Insertion dans la table tableau
     $lien_image = $dossier.$fichierinsert;
-    $insert=$bdd->prepare("INSERT INTO tableau (reference, lien_image, id_dimension, id_categorie, id_prix) VALUE (:reference, :lien_image, :id_dimension, :id_categorie, :id_prix)");
+    $insert=$bdd->prepare("INSERT INTO tableau (reference,numero, lien_image, id_dimension, id_categorie, id_prix) VALUE (:reference, :numero, :lien_image, :id_dimension, :id_categorie, :id_prix)");
     $insert->execute(array(
-        'reference' => $fichier,
+        'reference' => $reference,
+        'numero' => $numerotableau,
         'lien_image' => $lien_image,
         'id_dimension' => $id_dimension,
         'id_categorie' => $id_categorie,

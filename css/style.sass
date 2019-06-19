@@ -23,7 +23,9 @@ html body
 
 h1
     font-size: 1.5em 
-    text-transform: uppercase    
+    text-transform: uppercase
+    @include media-min (1100px)
+        font-size: 2em    
 
 h2
     font-size: 1.2em 
@@ -36,6 +38,7 @@ a
     cursor: pointer
     &:visited
         color: black
+
 //////////////////////////////////////////
 // Gestion du header de toutes les pages//
 //////////////////////////////////////////
@@ -80,9 +83,7 @@ main
             span
                 font-size: 1.5em 
                 text-transform: uppercase
-
     // menu burger
-
     .header__icon
         position: relative
         display: block
@@ -99,9 +100,7 @@ main
             top: 25px
             right: 16px
             box-shadow: 0 8px 0 1px black, 0 16px 0 1px black, 0 24px 0 1px black
-
 // gestion menu nav
-
 .menu
     z-index: 1
     float: right
@@ -144,9 +143,7 @@ main
     .active
         color: white
         background-color: black
-
 // gestion animation ouverture menu burger
-
 .with__sidebar
     .header
         border-bottom-left-radius: 0px
@@ -163,11 +160,18 @@ main
         right: 0
         left: 0
         background-color: rgba(0,0,0,0.5)
-
 .pusher
     height: 100%
     transition: translateY 0.2s
     transform: translateY(0px)
+// Mot de bienvenue
+.bienvenue
+    position: fixed
+    bottom: 100px
+    width: 100%
+    color: white
+    text-align: center
+    // margin-top: 50px
 
 //////////////////////////////////////////
 // Gestion du footer de toutes les pages//
@@ -224,7 +228,7 @@ footer
         color: white
     .cadre_categ
         padding: 10px
-        margin: auto
+        // margin: auto
         width: 100%
         @include media-min(800px)
             width: 45%
@@ -265,11 +269,12 @@ footer
             max-height: 250px
             padding-bottom: 5px
         .bouton
-            width: 50%
+            // width: 50%
             background-color: darken($header-bg, 30)
             border-radius: 25px
             height: 25px
             color: white
+            padding: 0 10px
         p
             padding-bottom: 5px
 
@@ -493,25 +498,3 @@ footer
         margin: 3px 0 10px
     a
         color: white
-
-.popup
-    display: none
-    position: fixed
-    top: 0
-    right: 0
-    bottom: 0
-    left: 0
-    background-color: black
-    opacity: 0.5
-    z-index: 1000
-// #popup
-//     &:target
-//         display: block
-.popup
-    a
-        font-weight: bold
-        padding: 10px 25px
-        background-color: white
-        position: absolute
-        top: 50%
-        left: 50px

@@ -12,6 +12,7 @@
         <a href="./ajouter.php">Ajouter un tableau</a>
         <a href="./suppression.php">Supprimer un tableau</a>
         <a href="./modification.php">Modifier un tableau</a>
+        <a href="./carroussel.php">Modifier le caroussel</a>
     </div>
 <script type="text/javascript">
 setTimeout( function(){

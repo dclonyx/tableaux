@@ -24,7 +24,7 @@ $req->execute(array(
     <div class="affichage_tableaux">
         <?php
         while($row = $req->fetch()) {
-            $reference=$row['reference'];
+            $reference=$row['nom_tableau']."-".$row['numero'];
             $prix=$row['prix'];
             $dimension=$row['dimension'];
             $lien_image=$row['lien_image'];
@@ -32,7 +32,7 @@ $req->execute(array(
             <div class="cadre_tableau">
                 <form action="contact.php" method="post">
                     <img src="<?php echo $lien_image;?>" alt="tableau" >
-                    <p>Référence : <?php echo $reference;?></p>
+                    <p>Référence : <?php echo $reference; ?></p>
                     <p>Dimension : <?php echo $dimension;?> cm</p>
                     <p>Prix : <?php echo $prix;?> euros</p>
                     <input type="hidden" name="ref" value="<?php echo $reference;?>">

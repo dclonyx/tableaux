@@ -9,6 +9,7 @@ ORDER BY reference");
 $req->execute();
 ?>
 <div class="contenair_modification">
+    <h2>Modifier un tableau</h2>
     <form action="./traitement_modif.php" method="POST" class="form_modif">
         <select name="modif">
         <?php

@@ -33,13 +33,3 @@ CREATE TABLE `TAILLE` (
 ALTER TABLE `TABLEAU` ADD FOREIGN KEY (`id_categorie`) REFERENCES `CATEGORIE` (`id_categorie`);
 ALTER TABLE `TABLEAU` ADD FOREIGN KEY (`id_taille`) REFERENCES `TAILLE` (`id_taille`);
 ALTER TABLE `TABLEAU` ADD FOREIGN KEY (`id_prix`) REFERENCES `PRIX` (`id_prix`);
-
-
-INSERT INTO tableau (reference, lien_image, id_categorie, id_taille, id_prix)
-VALUES (`ref1`, `test1`, '1', '5', '3'),
-(`ref2`, `test2`, '2', '2', '5'),
-(`ref3`, `test3`, '3', '4', '3'),
-(`ref4`, `test4`, '4', '3', '1'),
-(`ref5`, `test5`, '5', '1', '2'),
-(`ref6`, `test6`, '2', '4', '4'),
-(`ref7`, `test7`, '5', '2', '5');

@@ -37,10 +37,10 @@ if (!isset($_POST['validation'])) {
                                 <div class="informations">
                                     <?php
                                     if (!empty($ref)){
-                                        echo '<p>Référence : '.$ref.'</p>';
+                                        echo '<p>Réf : '.$ref.'</p>';
                                     }
                                     if (!empty($dimension)){
-                                        echo '<p>Dimension : '.$dimension.' cm</p>';
+                                        echo '<p>Dim : '.$dimension.' cm</p>';
                                     }
                                     if (!empty($prix)){
                                         echo '<p>Prix : '.$prix.' euros</p>';

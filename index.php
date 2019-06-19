@@ -34,16 +34,15 @@
         </main>
         <!-- cache le site a l ouverture du menu burger -->
         <div id="cache"></div>
+        <div class="bienvenue">
+            <h1>Bienvenue</h1>
+        </div>
         <footer>
             <a class="mention" href="./php/affichage/mentions_legales.php">Mentions Légales</a>
             <a class="logo" target="_blank" href="https://www.facebook.com/Les-tableaux-dElodie-720131621368673/">
                 <img src="./img/fb.png" alt="facebook">
             </a>
         </footer>
-    </div>
-    <!-- bouton retour haut de page -->
-    <div id="retourhaut">
-        <a href="#top"><img src="./img/to_top.png" alt="top"></a>
     </div>
 <script>
     var myIndex = 0;
@@ -60,7 +59,7 @@
             myIndex = 1;
         }    
         x[myIndex-1].style.display = "block";  
-        setTimeout(carousel, 3000);
+        setTimeout(carousel, 2000);
     }
 </script>
 <script src="./js/script.js"></script>
